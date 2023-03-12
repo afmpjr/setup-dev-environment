@@ -132,4 +132,4 @@ npx create-react-app YOUR_PROJECT_NAME
 </details>
 
 ---
-At this point, your environment is ready to run either PHP Laravel and/or NodeJS projects using the MariaDB database.
+At this point, if all steps were executed, our environment is ready to run either PHP Laravel and/or NodeJS projects using the MariaDB database.
