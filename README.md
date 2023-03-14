@@ -1,6 +1,6 @@
 # Setup your DEV Environment on Windows from scratch
 
-This repositori intends be a short/easy way to setup a local development environment on Windows 10.
+This repository intends be a short/easy way to setup a local development environment on Windows 10.
 
 We're going to:
 
