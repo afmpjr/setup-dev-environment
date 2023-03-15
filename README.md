@@ -156,7 +156,7 @@ vue create YOUR_PROJECT_NAME
 
 Now we can choose to either run our project using the `npm run serve` command or creating a `docker-compose` file.
 
-So, as we aim to use Docker, let's create a `docker-compose.yml` file with the following content:
+So, as we aim to use Docker, let's create a `docker-compose.yml` file inside the new project root folder with the following content:
 
 ```yaml
 version: '3'
