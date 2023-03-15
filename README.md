@@ -1,6 +1,6 @@
 # Setup your DEV Environment on Windows from scratch
 
-This repository intends be a short/easy way to setup a local development environment on Windows 10.
+This repositori intends be a short/easy way to setup a local development environment on Windows 10.
 
 We're going to:
 
@@ -129,7 +129,65 @@ And we're ready to create a new project
 ```bash
 npx create-react-app YOUR_PROJECT_NAME
 ```
+
+> If you want to use Yarn and it's not yet installed, run:
+```bash
+npm install -g yarn
+```
+
+</details>
+
+<details>
+<summary>Optional: Run Vue projects using Docker Compose</summary>
+
+> Previous step: **Install NVM, NodeJS, NPM/Yarn** is required
+
+In order to run Vue applications, it's also required to install the Vue package.
+
+```bash
+npm install -g @vue/cli
+```
+
+Then we're able to create a new Vue project.
+
+```bash
+vue create YOUR_PROJECT_NAME
+```
+
+Now we can choose to either run our project using the `npm run serve` command or creating a `docker-compose` file.
+
+So, as we aim to use Docker, let's create a `docker-compose.yml` file with the following content:
+
+```yaml
+version: '3'
+services:
+  app:
+    # chosing the node image as below or any other (eg. latest)
+    image: node:14-alpine
+    # Defining the default folder of our application on the container
+    working_dir: /app
+    ports:
+      - '8080:8080'
+    volumes:
+      # pointing our project root folder to the working dir defined above
+      - '.:/app'
+    # npm will install our vue dependencies and run our app
+    command: sh -c 'npm install && npm run serve'
+```
+
+And now everything must be working. Let's run this service ...
+
+```bash
+docker-compose up
+```
+
+If there's no errors, we can just make it run in the background by adding the flag `-d`.
+
+```bash
+docker-compose up -d
+```
+
 </details>
 
 ---
-At this point, if all steps were executed, our environment is ready to run either PHP Laravel and/or NodeJS projects using the MariaDB database.
+At this point, your environment is ready to run either PHP Laravel, NodeJS and/or Vue projects, using the MariaDB database (if needed)
