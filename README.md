@@ -42,17 +42,22 @@ echo \
 ```
 ```bash
 sudo apt update && \
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-compose
 ```
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo service docker start
 ```
+> I miss some configuration/instruction to set the docker service to start automatically. So, we still need to start docker service everytime the system is restarted.
+
+
 Verify that you can run docker commands without sudo 
 ```bash
 docker run hello-world
 ```
+> If this doens't work, try to close and open a new terminal session.
+
 </details>
 
 <details>
