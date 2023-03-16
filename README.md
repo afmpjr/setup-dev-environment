@@ -24,6 +24,38 @@ sudo apt install zip unzip
 </details>
 
 <details>
+<summary>Recommended: Install and configure Git</summary>
+
+Install Git
+```bash
+sudo apt install git
+```
+Generate an SSH key using the following command:
+```bash
+ssh-keygen -t ed25519 -C "you@domain.com"
+```
+Copy the content of your public key.
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+Got to your [Github account settings -> SSH Keys / Add new](https://github.com/settings/ssh/new), type a title (whatever you want), paste your key (previously coppied) into the "Key" textarea field and click the "Add SSH Key" button to submit.
+
+Back to your terminal, run the following commands:
+> replace the path, your name and your mail with the proper values.
+```bash
+git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519"
+```
+```bash
+git config --global user.name "your name"
+```
+```bash
+git config --global user.email "you@domain.com"
+```
+We're ready to begin interacting with Github repositories.
+
+</details>
+
+<details>
 <summary>Recommended: Install Docker</summary>
 
 Follow "Install Docker Engine on Ubuntu" documentation at https://docs.docker.com/engine/install/ubuntu/
@@ -50,7 +82,7 @@ sudo usermod -aG docker $USER
 sudo service docker start
 ```
 > I miss some configuration/instruction to set the docker service to start automatically. So, we still need to start docker service everytime the system is restarted.
-
+<!-- TODO Improve this in order to set docker service run automaticaly -->
 
 Verify that you can run docker commands without sudo 
 ```bash
